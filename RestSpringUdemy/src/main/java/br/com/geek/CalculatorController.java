@@ -5,15 +5,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.geek.exception.UnsuportedMathOperationException;
+
 @RestController
 public class CalculatorController {
 	
 
 	
-	@RequestMapping(value="/sum/numberOne/numberTwo", method=RequestMethod.GET)
+	@RequestMapping(value="/sum/{numberOne}/{numberTwo}", method=RequestMethod.GET)
 	public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
 		if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-			throw new Exception();
+			throw new UnsuportedMathOperationException("Please set numeric value!");
 		}
 		Double sum = convertToDouble(numberOne) + convertToDouble(numberTwo);
 		return sum;
@@ -34,7 +36,7 @@ public class CalculatorController {
 	private boolean isNumeric(String strNumber) {
 		if (strNumber == null ) return false;
 		String number = strNumber.replace(",", ".");
-		return number.matches("[-+]?[0-9]*\\\\.?[0-9]+");
+		return number.matches("[-+]?[0-9]*\\.?[0-9]+");
 	}
 
 }
