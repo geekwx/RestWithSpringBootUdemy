@@ -1,10 +1,12 @@
-package br.com.geek;
+package br.com.geek.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.geek.Greeting;
 
 @RestController
 public class GreetingController {
