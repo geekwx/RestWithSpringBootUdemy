@@ -1,19 +1,24 @@
-package br.com.geek.model;
+package br.com.geek.data.vo;
 
 import java.io.Serializable;
 
-public class Person implements Serializable {
+
+public class PersonVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	
 	private String firstName;
+	
 	private String lastName;
+	
 	private String address;
+	
 	private String gender;
 	
 	
-	public Person() {
+	public PersonVO() {
 		
 	}
 
@@ -89,7 +94,7 @@ public class Person implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Person other = (Person) obj;
+		PersonVO other = (PersonVO) obj;
 		if (address == null) {
 			if (other.address != null)
 				return false;
@@ -117,5 +122,8 @@ public class Person implements Serializable {
 			return false;
 		return true;
 	}
+
+
+
 	
 }
